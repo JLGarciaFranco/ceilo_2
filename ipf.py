@@ -19,7 +19,10 @@ def ipf(allprf,z,t):
 	# niveles a probar como posiblles zm
 	niv=len(z)
 	# nivel minimo a partir donde se empieza a busar la altura.
-	niv_min=15
+	if niv==500:
+		niv_min=30
+	else:
+		niv_min=15
 
 	mlh=np.zeros(len(t))
 	for i,tt in enumerate(t):
@@ -49,7 +52,7 @@ def ipf(allprf,z,t):
 		mlh[i]=int(z[zk[i,0]])
 		if np.nonzero(np.nanmin(rmsd[:,k]))>np.nanmean(np.nonzero(rmsd)):
 			mlh[i]=np.nan
-		if mlh[i]<201 or mlh[i]>4300:
+		if mlh[i]<201 or mlh[i]>4000:
 			mlh[i]=np.nan
 	return mlh
 def calmlh(fl):

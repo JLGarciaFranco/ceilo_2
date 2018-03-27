@@ -7,15 +7,15 @@ from ipf import ipf
 import csv
 import math
 from ceilotools import *
-#outputdir='/home/D1_CEILO/TOLU/Results_day/Preliminary/MLH18/'
+outputdir='/home/D1_CEILO/TOLU/Results_day/Preliminary/MLH18/'
 #10os.system('mkdir '+outputdir)
-#carpeta='/home/D1_CEILO/TOLU/Results_day/Preliminary/Matrix/'
-outputdir=carpeta=''
+carpeta='/home/D1_CEILO/TOLU/Results_day/Preliminary/Matrix/'
+#outputdir=carpeta=''
 filelist=[]
 rango=range(2011,2019)
 for name in rango:
 	name=str(name)
-	flist=glob.glob(carpeta+"*"+name+"*matrix*.txt")
+	flist=glob.glob(carpeta+"*"+name+"*prf*.txt")
 	filelist+=flist
 #print os.walk(carpeta)
 #for x in os.walk(carpeta):
@@ -26,8 +26,8 @@ for name in rango:
 #	fname=glob.glob(dir+"/*matrix*")
 #	filelist.append(fname)
 #flist=np.sort(filelist[1:])
-#flist=glob.glob(carpeta+"*matrix*.txt")
-print filelist
+filelist=glob.glob(carpeta+"*matrix*.txt")
+print np.sort(filelist)
 def calmlh(fl,method,outputdir):
 	fle=open(fl,'r')
 	fle.readline()
@@ -89,9 +89,15 @@ def calmlh(fl,method,outputdir):
 		#else:
 		#	uplim+=4
 		if np.isnan(rlh[nn]):
-			uplims[nn]=(1200+z[np.where(allprf[:,nn]<1)[0][0]])/2.
+			try:
+				uplims[nn]=(1200+z[np.where(allprf[:,nn]<1)[0][0]])/2.
+			except:
+				uplims[nn]=1500
 		else:
-			uplims[nn]=(z[np.where(allprf[:,nn]<1)[0][0]]+rlh[nn])/2.
+			try:
+				uplims[nn]=(z[np.where(allprf[:,nn]<1)[0][0]]+rlh[nn])/2.
+			except:
+				uplims[nn]=rlh[nn]
 		nn+=1
 		if nn==len(tarr):
 			break

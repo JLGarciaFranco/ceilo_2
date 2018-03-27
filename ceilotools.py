@@ -77,7 +77,11 @@ def writemlh(outputfile,horas,mlhs,station):
 	fout.write("http://www.atmosfera.unam.mx/espectroscopia/ceilo/\n")
 	fout.write("Decimal.hour  MLH(m)\n")
 	for i,unamlh in enumerate(mlhs):
+		print horas[i],unamlh
+		if np.isnan(unamlh):
+			continue
 		timeh=horas[i]
+		unamlh=int(unamlh)
 		fout.write("%.3f         %i \n" % (timeh,unamlh))
 	fout.close()
 ###########################################################################################################
@@ -429,13 +433,13 @@ def algmlh(allprf,method,mlh,i,z,tarr,t,uplim):
 		a2=10
 		fi=a2
 		nn=1
-		try:
-			vec=allprf[lowlim+1:uplim+1,jk]-allprf[lowlim:uplim,jk]
-		except IndexError:
-			return
+#		try:
+#			vec=allprf[lowlim+1:uplim+1,jk]-allprf[lowlim:uplim,jk]
+#		except IndexError:
+#			return
 	elif len(z) <=250:
 		lowlm=int(lowlim/2.)
-		vec=allprf[lowlm+1:uplim+1,jk]-allprf[lowlm:uplim,jk]
+#		vec=allprf[lowlm+1:uplim+1,jk]-allprf[lowlm:uplim,jk]
 		a1=1
 		a2=20
 		fi=5
