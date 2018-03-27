@@ -1,0 +1,19 @@
+Smoothing parameters driving text file. 
+
+1. Smoothing in height parameters. 
+Amax 
+0.333
+a0 constante 
+0.01
+N-1 convoluciones 
+100
+
+2. Smoothing in  time parameters
+
+at0 constante 
+0.1 
+t1 pendiente No es necesario modificar esto. 
+0
+N-1 convoluciones. 
+10 
+

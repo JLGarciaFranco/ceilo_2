@@ -1,0 +1,12 @@
+Main directory5
+/home/D1_CEILO/ERNO/CL2/
+Output Directory
+/home/D1_CEILO/ERNO/Results_day/perfiles/
+Run Version 
+2018/03
+Averaging time window (in minutes)
+10
+Estación
+ERNO
+Write backscattering profile only flag
+1
