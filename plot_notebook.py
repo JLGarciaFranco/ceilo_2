@@ -33,8 +33,8 @@ and script license continued by the import modules instructions.
 import numpy as np
 import matplotlib.pyplot as plt
 from ceilotools import readmatrixfile, readmlh
-matrixfile='/home/jlgf/Documents/Python/scripts/serverversion/ceilo_2/20151109_UNAM_matrix.txt'
-mlhfile='/home/jlgf/Documents/Python/scripts/serverversion/ceilo_2/20151109_UNAM_mlh.txt'
+matrixfile='/home/jlgf/Documents/Python/scripts/serverversion/ceilo_2/20170314_TOLU_matrix.txt'
+mlhfile='/home/jlgf/Documents/Python/scripts/serverversion/ceilo_2/20170314_UNAM_mlh.txt'
 filename=mlhfile.split('/')[-1]
 ##############################################################################
 # This code block is executed, although it produces no output. Lines starting

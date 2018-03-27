@@ -10,12 +10,12 @@ from ceilotools import *
 outputdir='/home/D1_CEILO/TOLU/Results_day/Preliminary/MLH18/'
 #10os.system('mkdir '+outputdir)
 carpeta='/home/D1_CEILO/TOLU/Results_day/Preliminary/Matrix/'
-#outputdir=carpeta=''
+outputdir=carpeta=''
 filelist=[]
 rango=range(2011,2019)
 for name in rango:
 	name=str(name)
-	flist=glob.glob(carpeta+"*"+name+"*prf*.txt")
+	flist=glob.glob(carpeta+"*14*TOLU*.txt")
 	filelist+=flist
 #print os.walk(carpeta)
 #for x in os.walk(carpeta):
@@ -26,7 +26,7 @@ for name in rango:
 #	fname=glob.glob(dir+"/*matrix*")
 #	filelist.append(fname)
 #flist=np.sort(filelist[1:])
-filelist=glob.glob(carpeta+"*matrix*.txt")
+#filelist=glob.glob(carpeta+"*matrix*.txt")
 print np.sort(filelist)
 def calmlh(fl,method,outputdir):
 	fle=open(fl,'r')
@@ -97,13 +97,19 @@ def calmlh(fl,method,outputdir):
 			try:
 				uplims[nn]=(z[np.where(allprf[:,nn]<1)[0][0]]+rlh[nn])/2.
 			except:
-				uplims[nn]=rlh[nn]
+				if rlh[nn]<3000:
+					uplims[nn]=rlh[nn]
+				else:
+					uplims[nn]=2500
 		nn+=1
 		if nn==len(tarr):
 			break
 	#print t[nn],z[uplim]
 	while nn<len(tarr) and t[nn]<=19.5:
-		zeroheight=int(z[np.where(allprf[:,nn]<=1)[0][0]])
+		try:
+			zeroheight=int(z[np.where(allprf[:,nn]<=1)[0][0]])
+		except:
+			zeroheight=3900
 		if zeroheight < 3700:
 			uplims[nn]=zeroheight
 		else: 
@@ -162,8 +168,8 @@ def calmlh(fl,method,outputdir):
 def remaking(outputdir,flist,method):
 	for filename in flist:
 		files= filename.split('/')[-1]
-		if outputdir+files[0:8]+"_UNAM_mlh.txt" in glob.glob(outputdir+"*_UNAM_mlh.txt"):
-			continue
+#		if outputdir+files[0:8]+"_UNAM_mlh.txt" in glob.glob(outputdir+"*_UNAM_mlh.txt"):
+#			continue
 		print filename
 		#filename=filename[0]
 		print(filename)
