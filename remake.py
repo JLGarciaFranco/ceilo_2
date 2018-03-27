@@ -7,9 +7,10 @@ from ipf import ipf
 import csv
 import math
 from ceilotools import *
-outputdir='/home/D1_CEILO/TOLU/Results_day/Preliminary/MLH18/'
+#outputdir='/home/D1_CEILO/TOLU/Results_day/Preliminary/MLH18/'
 #10os.system('mkdir '+outputdir)
-carpeta='/home/D1_CEILO/TOLU/Results_day/Preliminary/Matrix/'
+#carpeta='/home/D1_CEILO/TOLU/Results_day/Preliminary/Matrix/'
+outputdir=carpeta=''
 filelist=[]
 rango=range(2011,2019)
 for name in rango:
@@ -88,19 +89,19 @@ def calmlh(fl,method,outputdir):
 		#else:
 		#	uplim+=4
 		if np.isnan(rlh[nn]):
-			uplims[nn]=(1200+z[np.where(allprf[:,nn]<1)])/2.
+			uplims[nn]=(1200+z[np.where(allprf[:,nn]<1)[0][0]])/2.
 		else:
-			uplims[nn]=(z[np.where(allprf[:,nn]<1)]+rlh[nn])/2.
+			uplims[nn]=(z[np.where(allprf[:,nn]<1)[0][0]]+rlh[nn])/2.
 		nn+=1
 		if nn==len(tarr):
 			break
 	#print t[nn],z[uplim]
 	while nn<len(tarr) and t[nn]<=19.5:
-		zeroheight=int(z[np.where(allprf[:,nn]<=1)[0][0]))
+		zeroheight=int(z[np.where(allprf[:,nn]<=1)[0][0]])
 		if zeroheight < 3700:
 			uplims[nn]=zeroheight
 		else: 
-			uplimns[nn]=3500
+			uplims[nn]=3500
 		nn+=1
 	#while t[nn]<=19.5:
 			#if len(z)==250:

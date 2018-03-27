@@ -1,3 +1,13 @@
+"""
+Ceilo tools module
+*********************************
+.. toctree::
+   :maxdepth: 2
+
+This is the main toolbox designed to aid main processsing by reading and writing to files and processing data.
+
+"""
+
 import numpy as np
 import math
 import os
@@ -13,7 +23,6 @@ def histogram(x,N):
 	hist=[]
 	for unbin in bins:
 		index=np.where(np.logical_and(x >= unbin , x < unbin+dx))[0]
-		print index
 		hist.append(float(len(index))/ntot)
 	return bins,np.array(hist)
 ###########################################################################################################
@@ -30,7 +39,7 @@ def roundt(minutos,segundos):
 	count=0
 	minutseg=minutos+(float(segundos)/60.0)
 	while dif > 0:
-	 	dif=dif-10
+		dif=dif-10
 		count=count+1
 	if minutseg >=9 + (count*10):
 		minutos=(count+1)*10
@@ -38,21 +47,67 @@ def roundt(minutos,segundos):
 		minutos=count*10
 	return minutos
 ###########################################################################################################
-def writemlh(outputfile,horas,mlhs,estacion):
+def writemlh(outputfile,horas,mlhs,station):
+	r"""
+
+	Write of mixed-layer file to txt file, using standard heading. For instance:
+
+	**Parameters**
+
+	**outputfile**: `string`
+	    Output filename. Usually a 'txt'.
+	**horas** : `numpy.narray-float`
+	    Time vector as hourly decimals. 0., 0.166, ..., 23.83.
+	**mlhs** : `numpy.narray-float`
+	    Mixed-layer heights vector.
+	**station*: `string`
+		Station string
+
+	:rtype: None
+
+	*See Also*
+
+	:ref:`secondary`.
+
+	"""
 	fout=open(outputfile,'w')
-	fout.write("Ceilometer Vaisala CL31. 5 min averages in "+estacion+"\n")
+	fout.write("Ceilometer Vaisala CL31. 10 min averages in "+station+"\n")
 	fout.write("MLH from Gradient method. Espectroscopia y Percepcion Remota, CCA-UNAM\n")
-	fout.write("Version del codigo: 201605  "  )
+	fout.write("Version: 201801  "  )
 	fout.write("http://www.atmosfera.unam.mx/espectroscopia/ceilo/\n")
-	fout.write("Hora.decimal  MLH(m)\n")
+	fout.write("Decimal.hour  MLH(m)\n")
 	for i,unamlh in enumerate(mlhs):
 		timeh=horas[i]
-		fout.write("%.3f         %.1f \n" % (timeh,unamlh))
+		fout.write("%.3f         %i \n" % (timeh,unamlh))
 	fout.close()
 ###########################################################################################################
-def writematrix(outputfile, matrix,zeta,t,estacion,filename,runv):
+def writematrix(outputfile, matrix,zeta,hour_vec,station,date,runv):
+	r"""
+
+	Write of backscattering matrix to txt file, using standard heading. For instance:
+
+	**Parameters**
+
+	**outputfile**: `string`
+	    Output filename. Usually a 'txt'.
+	**matrix**: `numpy.nadarray`
+	    Backscattering matrix mxn where m is the length of time vector, or number of decimal hours in the particular day and n is the length of height vector, usually 500 (10-5000 m every 10 m).
+	**hour_vec** : `numpy.narray-float`
+	    Time vector as hourly decimals. 0., 0.166, ..., 23.83.
+	**date** : `string`
+	    Date of measurement (typically %Y%m%d)
+	**station*: `string`
+		Station string
+
+	:rtype: None
+
+	*See Also*
+
+	:ref:`writemlh`
+
+	"""
 	fout=open(outputfile,'w')
-	fout.write("Datos de retrodispersion en "+ estacion + filename+"\n" )
+	fout.write("Datos de retrodispersion en "+ station + date+"\n" )
 	fout.write("Ceilometro Vaisela CL31 \n")
 	fout.write("Version del codigo: 201605\n"  )
 	fout.write("http://www.atmosfera.unam.mx/espectroscopia/ceilo/\n")
@@ -62,7 +117,7 @@ def writematrix(outputfile, matrix,zeta,t,estacion,filename,runv):
 	for zval in zeta:
 		zstring=zstring+" %i" % (zval)
 	tstring ="horas: "
-	for tval in t:
+	for tval in hour_vec:
 		tstring=tstring+" %.3f" % (tval)
 	fout.write(zstring + "\n")
 	fout.write(tstring +"\n")
@@ -115,20 +170,55 @@ def onedayavg(filename,horas):
 
 
 	return promedios
+def readmlh(filename):
+    r"""
+
+    Write of backscattering matrix to txt file, using standard heading. For instance:
+
+    **Parameters**
+
+    **filename**:`string`
+        Input filename. Usually a 'txt'.
+
+    :rtype:time-array, mlh-array:  time and MLH vector.
+
+    *See Also*
+
+    :meth:`writemlh` , :meth:`readmatrixfile`
+
+    """
+    profil=np.genfromtxt(filename,skip_header=4)
+    return profil[:,0],profil[:,1]
 ###########################################################################################################
 def readmatrixfile(filename):
-	m=6
-	y=8
-	f = open(filename, 'r')
-	for i in range(m):
-		f.readline()
+    r"""
 
-	z=np.array(f.readline().split()[1:],dtype=float)
-	tarr=np.array(f.readline().split()[1:],dtype=float)
-	allprf=np.genfromtxt(filename,skip_header=y)
-#	print tarr
-#	print allprf.shape
-	return [z,tarr,allprf]
+    Write of backscattering matrix to txt file, using standard heading. For instance:
+
+    **Parameters**
+
+    **filename**: `string`
+        Input filename. Usually a 'txt'.
+
+    :rtype: z,tarr,allprf height and time vector and backscattering matrix.
+
+    *See Also*
+
+    :meth:`writemlh`
+
+    """
+    m=6
+    y=8
+    f = open(filename, 'r')
+    for i in range(m):
+        f.readline()
+
+    z=np.array(f.readline().split()[1:],dtype=float)
+    tarr=np.array(f.readline().split()[1:],dtype=float)
+    allprf=np.genfromtxt(filename,skip_header=y)
+    #	print tarr
+    #	print allprf.shape
+    return [z,tarr,allprf]
 ###########################################################################################################
 def insertmatrix(filename,t):
 	data= np.genfromtxt(filename,skip_header=4)
@@ -144,6 +234,23 @@ def insertmatrix(filename,t):
 	return height
 ###########################################################################################################
 def runningMeanFast(x, N):
+	r"""
+
+	Running mean of array x over a window of size N.
+
+	**Parameters**
+
+	**x**: `np.array`
+	    Numpy array, usually 1D, to average over a moving or running mean.
+	**N**: `numpy.nadarray`
+	    Size of moving average window.
+
+	:rtype: `np.array` averaged with running mean.
+
+    .. note::
+        This script makes use of numpy.convolve.
+
+	"""
 	ravg=np.convolve(x, np.ones((N,))/N,mode='valid')[(N-1):]
 	size=len(ravg)
 	dif=len(x)-len(ravg)
@@ -163,9 +270,33 @@ def runningMeanFast(x, N):
 	#print ravg
 	return ravg
 #USOS EN CEILOV
-def writenumofprof(outputfile,numofprof,t, estacion,filename):
+def writenumofprof(outputfile,numofprof,t, estacion,date):
+	r"""
+
+	Write number of backscattering profiles used for every 10-min averaged window.
+
+	**Parameters**
+
+	**outputfile**: `string`
+	    Output filename. Usually a 'txt'.
+	**numofprof**: `int`
+	    Number of profiles used for average
+	**t** : `numpy.narray-float`
+	    Time vector as hourly decimals. 0., 0.166, ..., 23.83.
+	**date** : `string`
+	    Date of measurement (typically %Y%m%d)
+	**estacion*: `string`
+		Station string
+
+	:rtype: None
+
+	*See Also*
+
+    :meth:`writematrix`
+
+	"""
 	fout=open(outputfile,'w')
-	fout.write("Datos de perfiles promediados "+ estacion + filename[1:-6]+"\n" )
+	fout.write("Datos de perfiles promediados "+ estacion + date[1:-6]+"\n" )
 	fout.write("Ceilometro Vaisala CL31 \n")
 	fout.write("Version del codigo: 2016 05 \n"  )
 	fout.write("http://www.atmosfera.unam.mx/espectroscopia/ceilo/\n")
@@ -242,6 +373,41 @@ def ipmthd(vec,lowlm,z):
 	mlh=z[newmlh+lowlm]
 	return mlh
 def algmlh(allprf,method,mlh,i,z,tarr,t,uplim):
+	r"""
+
+	Algorithms used for Mixed-layer Height determination.This script computes the mlh through an iterative approach and calls the relevant method.
+
+    A combined approach, named C2, due to the fact that it was the second version of a Combined algorithm uses both the gradient method and the wavelet method to find the boundary layer top. This was the algorithm used in :cite:`jlgf2018`.
+
+	**Parameters**
+
+	**allprf**: `np.nadarray`
+	    backscattering matrix
+    **method**: `string`
+	    String calling a MLH determination method, either of the following strings are accepted: 'WT', 'Gradient', 'IPM', 'C2'.
+	**tarr** : `np.array`
+	    Time-array, usually decimal hours.
+	**mlh** : `numpy.nadarray`
+	    Mixed-layer height array, usually len(mlh)=144.
+    **i** : `int`
+  	   Integer of current time-step. Ranging from 0-143.
+	**z** : `np.array`
+		Height-array usually length 500, start=10, end=5000, t_step=10 [m]
+	**t** : `numpy.narray-float`
+	    Time float of this specific computation.
+	**uplim** : `string`
+	    Upper-limit of maximum MLH possible.
+
+	:rtype: mlh: float
+
+    .. note::
+    	**See Also functions to estimate and write mlh**
+
+        :meth:`writemlh`
+        :meth:`ipf`
+        :meth:`wavelets`
+
+	"""
 	jk=i
 	lowlim=20
 	uplim=uplim
@@ -263,13 +429,13 @@ def algmlh(allprf,method,mlh,i,z,tarr,t,uplim):
 		a2=10
 		fi=a2
 		nn=1
-#		try:
-#			vec=allprf[lowlim+1:uplim+1,jk]-allprf[lowlim:uplim,jk]
-#		except IndexError:
-#			return
+		try:
+			vec=allprf[lowlim+1:uplim+1,jk]-allprf[lowlim:uplim,jk]
+		except IndexError:
+			return
 	elif len(z) <=250:
 		lowlm=int(lowlim/2.)
-#		vec=allprf[lowlm+1:uplim+1,jk]-allprf[lowlm:uplim,jk]
+		vec=allprf[lowlm+1:uplim+1,jk]-allprf[lowlm:uplim,jk]
 		a1=1
 		a2=20
 		fi=5
@@ -284,7 +450,7 @@ def algmlh(allprf,method,mlh,i,z,tarr,t,uplim):
 	elif method == 'WT':
 		a=120/a1
 
-		bot,mlh[jk],top=haarcovtransfm(allprf,z,jk,'Auto',fi,t,uplim,200)
+		bot,mlh[jk],top=haarcovtransfm(allprf,z,jk,'Auto',fi,t,uplim*10*nn,lowlim*10)
 	if method == 'Composite 1':
 		if mlh[jk]<=120 or (jk>1 and mlh[jk] - mlh[jk-1] > 1000) :
 			ipm=ipmthd(vec,lowlm,z)
@@ -337,9 +503,51 @@ def algmlh(allprf,method,mlh,i,z,tarr,t,uplim):
 			#print 'Anterior, Final ',mlh[jk-1], mlh[jk]
 	#print 'FINAL', mlh[jk]
 	return mlh[jk]
-def cloudfilter(allprf,tarr,z,fl):
+def cloudfilter(allprf,tarr,z,datestring):
+	r"""
+	Cloud filter
+	--------------
+
+	This function computes the cloud filter equations described in [Teschke (2008),Garcia-Franco (2017), Garcia-Franco et.al. (2018)]
+
+
+
+	**Parameters**
+
+	**allprf**: `np.nadarray`
+	    backscattering matrix
+	**tarr** : `np.array`
+	    Time-array, usually decimal hours.
+	**z** : `np.array`
+		Height-array usually length 500, start=10, end=5000, t_step=10 [m]
+	**datestring** : `string`
+		String for date, typically %Y%m%d, e.g., 20160305
+
+	:rtype: datetimearray, flag vector: temps returns all datetimes where cloud or precipitation
+	has been found, flag vector is a numpy array with the dimensions of tarr where clouds are depicted
+	as 1 and clear-sky conditions as 0.
+
+
+	**Statistical filter**
+
+	.. math:: \beta_\sigma (z,t)=B(z,t)\sigma(t)
+	.. math:: \mu=\frac{1}{N_zN_t}\sum_z\sum_t\beta_\sigma(z,t)
+	.. math:: \sum=\frac{1}{N_zN_t-1}\sum_z\sum_t[\beta_\sigma(z,t)-\mu]^2.
+	.. math:: B_N=\mu+3\sqrt{\sum}
+
+	* :math:`B(z,t)` Backscattering matrix
+	* :math:`\sigma(t)` Variance over time $t$.
+	* :math:`\mu` Global mean of \beta_\sigma(z,t)
+	* :math:`\sum` Global variance of \beta_\sigma(z,t)
+	* :math:`z_{max}` Maximum integration level [m]
+	* :math:`B_N` Threshold for determining cloud or no cloud, function of both global mean and variance.
+
+	`B_N` defines the threshold value used for determining whether or not a profile at time `t` presents
+	cloud and precipiation or not. If B(z,t)>B_N then cloud and precipitation are present. Else, clear-sky conditions
+	are considered.
+	"""
 	thrs=1750.0
-	day=fl
+	day=datestring
 	dia=int(day[6:8])
 	year=int(day[0:4])
 	mes=int(day[4:6])
@@ -351,6 +559,7 @@ def cloudfilter(allprf,tarr,z,fl):
 	a=allprf[zi:zmax,:]
 	nbs=[]
 	tmps=[]
+	sigma_t=np.sigma(tarr)
 	count=len(tarr)*len(z[zi:zmax])
 	sumi=0
 	for i,t in enumerate(tarr):
@@ -372,7 +581,6 @@ def cloudfilter(allprf,tarr,z,fl):
 				continue
 
 	sigma=deviat/(count-1)
-	three=3*np.sqrt(sigma)
 	ec=mu+(3*np.sqrt(sigma))
 #	print 'media','sigma','3','s'
 #	print mu,sigma,three,two
@@ -385,7 +593,7 @@ def cloudfilter(allprf,tarr,z,fl):
 			try:
 				if a[j+zi,i]>ec or a[j+zi,i]>thrs:
 					horas=int(math.floor(t))
-		        	        minutos=int(round((t-horas)*60,-1))
+					minutos=int(round((t-horas)*60,-1))
 					tim=datetime.datetime(year,mes,dia,horas,minutos)
 					tmps.append(tim)
 					#nbs.append(1)
@@ -417,7 +625,7 @@ def readprofile(fl,tim):
 	i,=np.where(tarr==tim)
 	if len(i) == 0:
 		return
-        try:
+	try:
 		perfil=allprf[:,int(i[0])]
 	except IndexError:
 		return

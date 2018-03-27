@@ -1,12 +1,11 @@
 Main directory5
-/home/D1_CEILO/ERNO/CL2/
+/home/D1_CEILO/JQRO/CL4/
 Output Directory
-/home/D1_CEILO/ERNO/Results_day/perfiles/
+/home/D1_CEILO/JQRO/Results_day/
 Run Version 
-2018/03
+Angel
 Averaging time window (in minutes)
 10
-Estación
-ERNO
-Write backscattering profile only flag
-1
+Estación 
+JQRO
+
