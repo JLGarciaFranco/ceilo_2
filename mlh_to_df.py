@@ -15,14 +15,14 @@ import matplotlib.pyplot as plt
 import datetime
 from ceilotools import *
 from dftools import * 
-carpeta1='/home/D1_CEILO/UNAM/PRCL/Angel/'
-outputdir='/home/D1_CEILO/UNAM/PRCL/Results/'
-outfile=outputdir+'jqro.csv'
+carpeta1='/home/D1_CEILO/TOLU/Results_day/Preliminary/'
+outputdir='/home/D1_CEILO/TOLU/Results_day/'
+outfile=outputdir+'tolu_2018.csv'
 os.system('rm '+outfile)
 #newfile=outputdir+'c2_article_db.csv'
 #cloudfile=outputdir+'angel_cloud.csv'
 dirnames=['Raw']
-dirlist=['MLH']
+dirlist=['MLH18']
 #dirlist=dirnames
 base=1.0/6.0
 darange=pd.date_range(start=datetime.datetime(2008,12,2,0,0),end=datetime.datetime(2016,6,4,23,55),freq='5min')

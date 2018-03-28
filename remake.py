@@ -7,10 +7,10 @@ from ipf import ipf
 import csv
 import math
 from ceilotools import *
-outputdir='/home/D1_CEILO/TOLU/Results_day/Preliminary/MLH18/'
+outputdir='/home/D1_CEILO/UNAM/MLH18/'
 #10os.system('mkdir '+outputdir)
-carpeta='/home/D1_CEILO/TOLU/Results_day/Preliminary/Matrix/'
-outputdir=carpeta=''
+carpeta='/home/D1_CEILO/UNAM/perfiles/'
+#outputdir=carpeta=''
 filelist=[]
 rango=range(2011,2019)
 for name in rango:
@@ -26,7 +26,7 @@ for name in rango:
 #	fname=glob.glob(dir+"/*matrix*")
 #	filelist.append(fname)
 #flist=np.sort(filelist[1:])
-#filelist=glob.glob(carpeta+"*matrix*.txt")
+filelist=glob.glob(carpeta+"*matrix*.txt")
 print np.sort(filelist)
 def calmlh(fl,method,outputdir):
 	fle=open(fl,'r')
@@ -153,6 +153,7 @@ def calmlh(fl,method,outputdir):
 		else:
 			uplims[nn]=int(rlh[nn])
 		nn+=1
+	print uplims[0:15]
 	for i,t in enumerate(tarr):
 #		grad[i]=algmlh(allprf,uplim,lowlim,'WT',mlh,i,z,tarr,t)
 		#print 'Ipm = ', algmlh(allprf,uplim,lowlim,'Ipm',mlh,i,z,tarr)
@@ -163,7 +164,6 @@ def calmlh(fl,method,outputdir):
 		if mlh[i] < 230:
 			print "Fakeeeee"+ str(mlh[i])
 		#print mlh[i]
-	levels=np.arange(0,300,15)
 	return mlh,tarr
 def remaking(outputdir,flist,method):
 	for filename in flist:

@@ -77,7 +77,7 @@ def writemlh(outputfile,horas,mlhs,station):
 	fout.write("http://www.atmosfera.unam.mx/espectroscopia/ceilo/\n")
 	fout.write("Decimal.hour  MLH(m)\n")
 	for i,unamlh in enumerate(mlhs):
-		print horas[i],unamlh
+#		print horas[i],unamlh
 		if np.isnan(unamlh):
 			continue
 		timeh=horas[i]

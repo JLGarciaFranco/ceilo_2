@@ -250,20 +250,26 @@ def firstmlh(prf,a,bottom):
     newmlh=bottom
     global b
     global top
-    top=top-50
+    top=top-10
     #Loop until newmlh is not current bottomo or top
-    while newmlh<=bottom+50 or newmlh >= top-50:
+    while newmlh<=bottom+10 or newmlh >= top-10:
     	wf=[]
-    	if newmlh>=top-50:
-    		top=top-20
-    	elif newmlh<=bottom+50:
-    		bottom=bottom+20
+    	if newmlh>=top-10:
+    		top=top-10
+    	elif newmlh<=bottom+10:
+    		bottom=bottom+10
     	index+=1
     	b=range(bottom,top,fi)
     	for n,b0 in enumerate(b):
     		covtransform=haarval(prf,a,b0)
     		wf.append(covtransform)
     	wf=np.asarray(wf)
+	if bottom >top:
+		newmlh=top
+		break
+	if bottom > 350:
+		newmlh=bottom
+		break
     	try:
     		newmlh=b[np.argmax(wf)]
     	except:
