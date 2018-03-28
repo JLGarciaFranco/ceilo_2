@@ -10,7 +10,7 @@ from ceilotools import *
 outputdir='/home/D1_CEILO/UNAM/MLH18/'
 #10os.system('mkdir '+outputdir)
 carpeta='/home/D1_CEILO/UNAM/perfiles/'
-#outputdir=carpeta=''
+outputdir=carpeta=''
 filelist=[]
 rango=range(2011,2019)
 for name in rango:
@@ -26,7 +26,7 @@ for name in rango:
 #	fname=glob.glob(dir+"/*matrix*")
 #	filelist.append(fname)
 #flist=np.sort(filelist[1:])
-filelist=glob.glob(carpeta+"*matrix*.txt")
+filelist=glob.glob(carpeta+"*2013*matrix*.txt")
 print np.sort(filelist)
 def calmlh(fl,method,outputdir):
 	fle=open(fl,'r')

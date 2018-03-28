@@ -454,7 +454,7 @@ def algmlh(allprf,method,mlh,i,z,tarr,t,uplim):
 	elif method == 'WT':
 		a=120/a1
 
-		bot,mlh[jk],top=haarcovtransfm(allprf,z,jk,'Auto',fi,t,uplim*10*nn,lowlim*10)
+		bot,mlh[jk],top=haarcovtransfm(allprf,z,jk,'Auto',fi,t,uplim,200)
 	if method == 'Composite 1':
 		if mlh[jk]<=120 or (jk>1 and mlh[jk] - mlh[jk-1] > 1000) :
 			ipm=ipmthd(vec,lowlm,z)
