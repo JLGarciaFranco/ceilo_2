@@ -21,7 +21,7 @@ outfile=outputdir+'jqro_2018.csv'
 filelist=os.listdir(outputdir)
 #os.system('rm '+outfile)
 #newfile=outputdir+'c2_article_db.csv'
-#cloudfile=outputdir+'angel_cloud.csv'
+cloudfile=outputdir+'jqro_cloud.csv'
 dirnames=['Raw']
 dirlist=['MLH18']
 #dirlist=dirnames
@@ -74,8 +74,8 @@ df1=pd.DataFrame(mlh,index=date)
 df1.columns=['MLH (m)']
 df1.index=pd.to_datetime(df1.index)
 #	df=df.join(df1,how='outer')
-#for column in df:
-#	df[label+'_filtered']=pullclouds(df[label],cloudfile)
+for label in df1.columns:
+	df1[label+'_filtered']=pullclouds(df1[label],cloudfile)
 #df.index=pd.to_datetime(df.index)
 #df=df.dropna(how='all')
 #df=ut_5tout_6(df)

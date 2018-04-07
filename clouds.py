@@ -8,10 +8,10 @@ import csv
 import math
 from  ceilotools import histogram
 from dftools import *
-outputfile= '/home/D1_CEILO/UNAM/PRCL/Results/angel_cloud.csv'
-carpeta='/home/D1_CEILO/UNAM/PRCL/FDB_10/Perfiles/'
+outputfile= '/home/D1_CEILO/JQRO/Results_day/jqro_cloud.csv'
+carpeta='/home/D1_CEILO/JQRO/Results_day/perfiles/'
 os.chdir(carpeta)
-flist=glob.glob(carpeta+"201102*.txt")
+flist=glob.glob(carpeta+"*.txt")
 flist=np.sort(flist)
 
 def cloudvec(fl):
@@ -22,7 +22,7 @@ def cloudvec(fl):
 	fle.readline()
 	fle.readline()
 	fle.readline()
-	thrs=1750.0
+	thrs=1550.0
 	a=np.genfromtxt(fl,skip_header=8)
 	z=np.array(fle.readline().split()[1:],dtype=float)
 	tarr=np.array(fle.readline().split()[1:],dtype=float)
@@ -32,9 +32,9 @@ def cloudvec(fl):
 	mes=int(day[4:6])
 	fle.close()
 	zi=np.where(z==200.)
-	zi=zi[0]
+	zi=zi[0][0]
 	zmax=np.where(z==4000.)
-	zmax=zmax[0]
+	zmax=zmax[0][0]
 	#print zi,zmax
 	nbs=[]
 	tmps=[]
@@ -61,7 +61,7 @@ def cloudvec(fl):
 	sigma=deviat/(count-1)
 	three=3*np.sqrt(sigma)
 	two=np.sqrt(sigma)
-	ec=mu+(4*np.sqrt(sigma))
+	ec=mu+three
 #	print 'media','sigma','3','s'
 #	print mu,sigma,three,two
 	#if ec > 1400: 
@@ -90,5 +90,5 @@ cldf=[item for sublist in cldf for item in sublist]
 cloudf=pd.DataFrame(data=cldf)		
 print cloudf
 #cloudf=ut_5tout_6(cloudf)	
-#cloudf.to_csv(outputfile)
+cloudf.to_csv(outputfile)
 #print cloudf 
