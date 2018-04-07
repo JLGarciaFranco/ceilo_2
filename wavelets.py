@@ -87,6 +87,7 @@ def haarcovtransfm(allprf,z1,i,a,f,t,tope,botom):
 	newmlh,wf=firstmlh(prf,a,bottom)
 # If Automated, find top, bot and mlh using recursive algorithm.
 	if detail:
+		#print i,a,newmlh
 		bot,newmlh,top=findtops(prf,wf,newmlh,a)
 	else:
 		bot=newmlh
@@ -186,28 +187,37 @@ def findtops(prf,wf,newmlh,a):
     c2=0.4
     global a0
     bt=b
+    counter=0
+#    print "entering while loop"
     while a>a0:
+	if len(wf)==0:
+		return newmlh,newmlh,newmlh
     	maxi=np.max(wf)
     	imaxi=np.argmax(wf)
+#	print maxi,imaxi
     	#Top index retrieval
     	topindex=0
     	wf6=wf[imaxi]
     	while wf6 > c1*maxi and imaxi+topindex != len(wf)-1:
-    		wf6=wf[imaxi+topindex]
     		topindex+=1
+    		wf6=wf[imaxi+topindex]
+
     	#Bottom index retrieval
     	botindex=1
     	wf4=wf[imaxi-botindex]
-    	while wf4 > c2*maxi and imaxi-botindex!=0:
+    	while wf4 > c2*maxi and imaxi-botindex>0:
     		botindex+=1
     		wf4=wf[imaxi-botindex]
     	a=a-20
-    	if bt[imaxi+topindex-1]-bt[imaxi]<=a0 or bt[imaxi]-bt[imaxi-botindex]:
+    	if bt[imaxi+topindex-1]-bt[imaxi]<=a0 or bt[imaxi]-bt[imaxi-botindex]<=a0 or a<=a0:
+#		print(imaxi,topindex,botindex)
     		break
-    	bt=bt[imaxi-botindex:imaxi+topindex]
+    	bt=bt[imaxi-botindex:imaxi+topindex+1]
+#	print bt,counter
     	c1=c1-0.02
     	c2=c2+0.02
     	wf=[]
+	counter+=1
     	### Find wavelet transform coefficients given current dilation.
     	for n,b0 in enumerate(bt):
     		covtransform=haarval(prf,a,b0)

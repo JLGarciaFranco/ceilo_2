@@ -15,9 +15,9 @@ import matplotlib.pyplot as plt
 import datetime
 from ceilotools import *
 from dftools import * 
-carpeta1='/home/D1_CEILO/TOLU/Results_day/Preliminary/MLH18/'
-outputdir='/home/D1_CEILO/TOLU/Results_day/Preliminary/'
-outfile=outputdir+'tolu_2018.csv'
+carpeta1='/home/D1_CEILO/JQRO/Results_day/MLH18/'
+outputdir='/home/D1_CEILO/JQRO/Results_day/'
+outfile=outputdir+'jqro_2018.csv'
 filelist=os.listdir(outputdir)
 #os.system('rm '+outfile)
 #newfile=outputdir+'c2_article_db.csv'
