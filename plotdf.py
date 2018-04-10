@@ -14,12 +14,12 @@ import matplotlib.pyplot as plt
 import datetime
 from ceilotools import *
 from dftools import * 
-carpeta='/home/D1_CEILO/JQRO/Results_day/Angel/jqro.csv'
+carpeta='/home/jlgf/Documents/Python/scripts/TOLU_2018.csv'
 #outf=outputdir+'all_avgperiods.csv'
 outputdir='/home/D1_CEILO/UNAM/PRCL/Results/paperplots/'
 outfile=carpeta
 dirlist=[]
-labe=['MLH (m)']
+labe=['Unfiltered', 'filtered']
 base=1.0/6.0
 df=pd.read_csv(outfile)
 #dfold.index=dfold[dfold.columns[0]]
@@ -35,7 +35,7 @@ print df.columns
 #x=yy
 df.index=pd.to_datetime(df.index)
 print df.head()
-lista=['MLH (m)']
+lista=['MLH (m)','MLH (m)_filtered']
 #print len(df['G-F2']), len(df['G-F'])
 #print data
 #ilist=[60,100,140,200]
@@ -58,7 +58,7 @@ colorlist=['k','b']
 #x=yy
 #df=dt.append(dx)
 #df=df[(df.year != 2010) | (df.year==2010 and df.month <5)]
-f,axarr=plt.subplots(3,sharex=True,figsize=(16,16))
+#f,axarr=plt.subplots(3,sharex=True,figsize=(16,16))
 for j,i in enumerate(lista):
 #	print i#
 	c=colorlist[j]
@@ -71,7 +71,7 @@ for j,i in enumerate(lista):
 	avg=labe[j]
 #	monthtable(data)
 	#denom=4000-ilist[j]
-	#minutes(data,data,False,True,False,avg,False,c)
+	minutes(data,data,False,True,False,avg,False,c)
 	#minutes(data,data,False,True,False,avg,False,c)
 	#plt.show()
 	#plt.savefig(outputdir+'jqroevolution.png')
@@ -99,24 +99,9 @@ for j,i in enumerate(lista):
 	# name = Label for plot if needed
 
 #x	# wstd = True or False to plot std instead of df. 
-#	minutes(data,False,True,False,avg,False,c)
 #	blhanomaly(data,outputdir+'Plots/meanmonthly.png')
-#	plt.savefig(outputdir+'Plots/article/devol.png')
-#	x=yy
-#	plt.grid()
-#	bimonthly(data,'../../PRCL/Results/Plots/bm_
-	#bimonthly(data,outputdir+'jqrobm_annomal.png')
 #	bimonthly(data,outputdir+'Plots/article/dmlhdt.png')
-#	blhanomaly(data,outputdir+'Plots/article/mean_tseries.png')
-#	plt.plot(one)
-	#cleanday(data)
-	mlhmax(data,c,f,axarr,avg,outputdir+'jqro_longt.png')
-	#bd=data.groupby([df.index.year, df.index.month]).mean()
-	#bd=bd.groupby([bd.index.month,bd.index.year]).mean()
-	#bd.plot()
-#for j in axarr:
-#	j.grid()
-#	j.legend(loc='best')
+#	mlhmax(data,c,f,axarr,avg,outputdir+'jqro_longt.png')
 #plt.grid()
 #plt.show()
 #plt.xlabel(u'Year',fontsize=20)
@@ -130,9 +115,9 @@ for j,i in enumerate(lista):
 #plt.legend(loc='upper left')
 #plt.savefig(outputdir+'filtercomparsion_2.eps')
 #plt.show()
-x=yy
 plt.xlim([0,24])
 #plt.legend(loc='upper left',title=u'Filter',fontsize=11)
 plt.grid()
-plt.savefig(outputdir+'Plots/cesar1.png')
+#plt.savefig(outputdir+'Plots/cesar1.png')
+plt.show()
 plt.close()

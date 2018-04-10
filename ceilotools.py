@@ -27,7 +27,7 @@ def histogram(x,N):
 	return bins,np.array(hist)
 ###########################################################################################################
 def frange(start,stop,step):
-	vec=np.zeros((stop-start)/step)
+	vec=np.zeros(int((stop-start)/step))
 	num=start
 	for i,t in enumerate(vec):
 		vec[i]=num
