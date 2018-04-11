@@ -78,7 +78,7 @@ def calmlh(fl,method,outputdir):
 				if np.isnan(np.nanmean(rlh[nn:nn+4])):
 					uplims[nn]=1750
 				else:
-					uplims[nn]=int(500+(np.nanmean(rlh[nn:nn+4])/2.))
+					uplims[nn]=int(1500+(np.nanmean(rlh[nn:nn+4])/2.))
 		else:
 			uplims[nn]=int(rlh[nn])
 		nn+=1
@@ -103,14 +103,14 @@ def calmlh(fl,method,outputdir):
 #		y_axis = polynomial(x_axis)
 		if np.isnan(rlh[nn]):
 			try:
-				uplims[nn]=int((1250)/4.+(3*polynomial(t[nn])/4.))
+				uplims[nn]=int(polynomial(t[nn]))
 			except:
-				uplims[nn]=1750
+				uplims[nn]=2250
 		else:
 #			try:
 #				uplims[nn]=500+rlh[nn])/4.
 #			except:
-			if rlh[nn]<2700:
+			if rlh[nn]>6700:
 				uplims[nn]=int((rlh[nn]+polynomial(t[nn]))/2.)
 			else:
 				uplims[nn]=int(polynomial(t[nn]))
@@ -153,7 +153,7 @@ def calmlh(fl,method,outputdir):
 				uplims[nn]=1750
 			else:
 				uplims[nn]=int(np.nanmean(uplims[nn-5:nn]))
-		elif rlh[nn]<1000 or rlh[nn]>3000:
+		elif rlh[nn]<800 or rlh[nn]>3000:
 			if nn>len(t)-2:
 				if np.isnan(np.nanmean(uplims[nn-4:nn])) and np.isnan(int(z[np.where(allprf[:,nn]<=1)[0][0]])) or int(z[np.where(allprf[:,nn]<=1)[0][0]])>2800:
 					uplims[nn]=1750

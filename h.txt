@@ -1,0 +1,1000 @@
+  309  mkdir perfiles
+  310  cd perfiles/
+  311  ls
+  312  vim dum
+  313  touch dummy.txt
+  314  ls
+  315  cp dummy.txt ../PRCL/FDB_10/Perfiles/. 
+  316  cp ../PRCL/FDB_10/Perfiles/* . 
+  317  cd ../
+  318  cd ../Scripts/ceilo_2016/
+  319  nano ceiloparameters.txt 
+  320  python loop_v1606.py 
+  321  screen 
+  322  exit
+  323  screen -l
+  324  cd ../
+  325  l
+  326  ls
+  327  cd ../
+  328  cd D1_CEILO/UNAM/perfiles/
+  329  ls
+  330  vim change.py 
+  331  python change.py 
+  332  ls
+  333  cd ../
+  334  ls
+  335  cd ../
+  336  cd JQRO/
+  337  ls
+  338  cd Results_day/
+  339  ls
+  340  cd Angel/
+  341  ls
+  342  cd ../
+  343  ls
+  344  cd ../
+  345  ls
+  346  cd CL4/
+  347  lsl
+  348  ls
+  349  cd ../
+  350  ls
+  351  cd Results_day/
+  352  ls
+  353  cd Angel/
+  354  ls
+  355  cd 20150307/
+  356  ls
+  357  cd .
+  358  cd ../
+  359  ls
+  360  cd ../
+  361  mkdir perfiles
+  362  vim jqro_c2.csv 
+  363  cd ../../
+  364  cd Scripts/ceilo_2016
+  365  nano ceiloparameters.txt 
+  366  nano ceilov201605.py
+  367  python loop_v1606.py 
+  368  cd ../../JQRO/CL4/
+  369  ls
+  370  cd ../
+  371  cd Scripts/ceilo_2016/
+  372  nano loop_v1606.py
+  373  python loop_v1606.py 
+  374  screen -r 17529.pts-10.EPR-01 
+  375  nano remake_old.py 
+  376  cd ../../JQRO/Results_day/
+  377  ls
+  378  cd perfiles/
+  379  nano 
+  380  ls
+  381  ls -lt
+  382  cd ../
+  383  cd ../Scripts/ceilo_2016/
+  384  ls
+  385  nano remake.py 
+  386  mkdir ../../UNAM/MLH2018
+  387  python2 remake.py 
+  388  cd ../D1_CEILO/
+  389  ls
+  390  cd Scripts/
+  391  ls
+  392  cd ceilo_2016/
+  393  ls
+  394  python2 remake.py 
+  395  vim ceilotools.py
+  396  python remake
+  397  python remake.py 
+  398  mkdir ../../UNAM/MLH18
+  399  rm -rf ../../UNAM/MLH2018/
+  400  nano remake.py 
+  401  python2 remake.py 
+  402  nano remake.py 
+  403  python2 remake.py 
+  404  cd ../D1_CEILO/UNAM/
+  405  ls
+  406  cd MLH18/
+  407  ls
+  408  vi 20090220_UNAM_mlh.txt 
+  409  vim 20090220_UNAM_rlh.txt 
+  410  vim 20121120_UNAM_mlh.txt 
+  411  vim 20130101_UNAM_mlh.txt 
+  412  vim 20150119_UNAM_rlh.txt 
+  413  exit
+  414  cd ../papers/
+  415  ls
+  416  ls -lt
+  417  cd variabilidad_popo/
+  418  ls
+  419  cd work/
+  420  ls
+  421  cd ../
+  422  ls -lt
+  423  cd ../MMF/
+  424  ls
+  425  cd v3/
+  426  ls
+  427  ls -lt
+  428  cd ../
+  429  ls
+  430  cd ../
+  431  cd ../D1_CEILO/UNAM/
+  432  ls
+  433  cd ../
+  434  ls
+  435  cd Scripts/
+  436  ls
+  437  cd ceilo_2016/
+  438  ls
+  439  nano remake.py 
+  440  nano ipf.py
+  441  python remake.py 
+  442  nano remake.py 
+  443  nano ipf.py
+  444  python remake.py 
+  445  ls
+  446  nano remake.py 
+  447  python remake.py 
+  448  vim ceilotools.py
+  449  python remake.py 
+  450  exit
+  451  cd ../
+  452  screen -r 17529.pts-10.EPR-01 
+  453  cd D1_CEILO/Scripts/ceilo_2016/
+  454  ls
+  455  nano remake.py 
+  456  cd ../../JQRO/Results_day/
+  457  ls
+  458  cd ../../Scripts/ceilo_2016/
+  459  nano remake.py 
+  460  python2 remake.py 
+  461  git add. 
+  462  git add . 
+  463  git commit -m "First commit"
+  464  git config --global user.email "jgcaspark@ciencias.unam.mx"
+  465  git config --global user.name "JLGF"
+  466  git remote add origin https://github.com/JLGarciaFranco/ceilo.git
+  467  git push -u origin master
+  468  exit
+  469  ls
+  470  cd ../D1_CEILO/Scripts/ceilo_2016/
+  471  ls
+  472  nano remake.py 
+  473  ls ../../UNAM/
+  474  nano remake.py 
+  475  python remake.py
+  476  cd ../../UNAM/MLH18/
+  477  ls
+  478  nano 20130101_UNAM_mlh.txt 
+  479  nano 20130101_UNAM_rlh.txt 
+  480  cd ../
+  481  screen -r 17529.pts-10.EPR-01 
+  482  exit
+  483  cd ../D1_CEILO/JQRO/
+  484  ls
+  485  ls Results_day/
+  486  cd ../Scripts/ceilo_2016/
+  487  ls
+  488  nano remake.py 
+  489  python remake.py 
+  490  nano remake.py 
+  491  ls ../../JQRO/Results_day/perfiles/
+  492  nano remake.py 
+  493  python remake.py
+  494  screen -r 17529.pts-10.EPR-01 
+  495  nano remake.py 
+  496  nano ipf.py
+  497  python remake.py
+  498  nano ipf.py
+  499  nano ceilotools.py
+  500  python remake.py
+  501  nano remake.py 
+  502  nano ipf.py
+  503  nano remake.py 
+  504  python2 remake
+  505  python2 remake.py 
+  506  vim remake.py 
+  507  python2 remake.py 
+  508  vim remake.py 
+  509  python2 remake.py 
+  510  cd ../../JQRO/
+  511  ls
+  512  cd Results_day/MLH
+  513  cd Results_day/
+  514  ls
+  515  cd MLH18/
+  516  ls
+  517  nano 20170506_UNAM_rlh.txt 
+  518  nano 20150515_UNAM_rlh.txt 
+  519  cd ../../../Scripts/ceilo_2016/
+  520  nano ipf.py
+  521  nano ceilotools.py
+  522  python2 remake.py 
+  523  nano ceilotools.py
+  524  python2 remake.py 
+  525  nano ceilotools.py
+  526  python2 remake.py 
+  527  nano ceilotools.py
+  528  python2 remake.py 
+  529  cd ../../JQRO/Results_day/MLH18/
+  530  ls
+  531  nano 20170506_UNAM_rlh.txt 
+  532  nano 20170506_UNAM_mlh.txt 
+  533  nano remake.py
+  534  cd ../../../Scripts/ceilo_2016/
+  535  ls
+  536  nano remake.py 
+  537  screen 
+  538  nano remake.py 
+  539  python remake.py 
+  540  screen -list
+  541  screen -r 17529.pts-10.EPR-01 
+  542  exit
+  543  screen -r 17529.pts-10.EPR-01 
+  544  cd ../D1_CEILO/Scripts/ceilo_2016/
+  545  nano remake.py 
+  546  screen -r 17529.pts-10.EPR-01 
+  547  nano remake.py 
+  548  screen -r 17529.pts-10.EPR-01 
+  549  ls
+  550  screen -r 17529.pts-10.EPR-01 
+  551  exit
+  552  ls
+  553  screen -r 17529.pts-10.EPR-01 
+  554  cd ../D1_CEILO/Scripts/ceilo_2016/
+  555  ls
+  556  nano remake.py 
+  557  python remake.py
+  558  nano remake.py 
+  559  python remake.py
+  560  nano remake.py 
+  561  python remake.py
+  562  nano remake.py 
+  563  python remake.py
+  564  screen -r 17529.pts-10.EPR-01 
+  565  exit
+  566  screen -r 17529.pts-10.EPR-01 
+  567  cd ../D1_CEILO/Scripts/ceilo_2016/
+  568  nano remake.py 
+  569  ls ../../JQRO/
+  570  ls ../../JQRO/Results_day/
+  571  python remake.py 
+  572  screen -list
+  573  screen -r 2707.pts-8.EPR-01 
+  574  screen -r 17529.pts-10.EPR-01 
+  575  ls
+  576  screen -r 17529.pts-10.EPR-01 
+  577  screen -r 2707.pts-8.EPR-01 
+  578  screen -r 17529.pts-10.EPR-01 
+  579  screen -r 2707.pts-8.EPR-01 
+  580  screen -r 17529.pts-10.EPR-01 
+  581  cd ../../UNAM/MLH18/
+  582  ls -lt
+  583  exit
+  584  screen -r 17529.pts-10.EPR-01 
+  585  cd ../D1_CEILO/UNAM/
+  586  ls
+  587  ls -lt MLH18/
+  588  ls
+  589  cd ../Scripts/ceilo_2016/
+  590  ls
+  591  nano remake.py 
+  592  python remake.py 
+  593  screen -r 2707.pts-8.EPR-01 
+  594  screen -r 17529.pts-10.EPR-01 
+  595  exit
+  596  screen -r 2707.pts-8.EPR-01 
+  597  screen -r 17529.pts-10.EPR-01 
+  598  exit
+  599  screen -r 2707.pts-8.EPR-01 
+  600  screen -r 17529.pts-10.EPR-01 
+  601  ls -lt ../papers/MMF/v3/
+  602  ls -lt ../papers/
+  603  ls -lt ../papers/variabilidad_popo/
+  604  exit
+  605  screen -r 2707.pts-8.EPR-01 
+  606  cd ../D1_CEILO/JQRO/Results_day/MLH
+  607  cd ../D1_CEILO/JQRO/Results_day/MLH18/
+  608  ls
+  609  screen -r 17529.pts-10.EPR-01 
+  610  screen -r 2707.pts-8.EPR-01 
+  611  python remake.py 
+  612  python remake.py
+  613  nan remake.py 
+  614  vim remake.py 
+  615  python remake.py
+  616  nano remake.py 
+  617  python remake.py
+  618  nano remake.py 
+  619  python remake.py
+  620  nano remake.py 
+  621  python remake.py
+  622  nano remake.py 
+  623  python remake.py
+  624  nano remake.py 
+  625  python2 remake.py 
+  626  ls
+  627  nano remake.py 
+  628  python2 remake.py 
+  629  git add . 
+  630  git commit -m "JQRO error in uplim delimitation"
+  631  git push origin master
+  632  exit
+  633  exit
+  634  top
+  635  df -h
+  636  screen -r 17529.pts-10.EPR-01 
+  637  top
+  638  screen -list
+  639  cd ../D1_CEILO/Scripts/ceilo_2016/
+  640  nano remake.py 
+  641  python2 remake.py 
+  642  nano remake.py 
+  643  python2 remake.py 
+  644  python loop_v1606.py 
+  645  cd ../../UNAM/perfiles/
+  646  ls
+  647  ls -lt
+  648  cd ../../Scripts/ceilo_2016/
+  649  ls
+  650  python loop_v1606.py 
+  651  cd ../
+  652  cd ceilo_2016/
+  653  python2 remake.py 
+  654  nano remake.py 
+  655  cd../../
+  656  ls
+  657  cd ../../JQRO/
+  658  ls
+  659  cd Results_day/
+  660  ls
+  661  cd perfiles/
+  662  ls
+  663  vim recover.py 
+  664  python2 recover.py 
+  665  vim recover.py 
+  666  python2 recover.py 
+  667  vim recover.py 
+  668  python2 recover.py 
+  669  ls
+  670  vim recover.py 
+  671  ls
+  672  vim recover.py 
+  673  python2 recover.py 
+  674  ls
+  675  cd ../
+  676  l
+  677  mkdir MLH18
+  678  cd ../../Scripts/ceilo_2016/
+  679  nano remake.py 
+  680  python2 remake.py 
+  681  nano remake.py 
+  682  python remake.py 
+  683  nano remake.py 
+  684  python3 remake.py 
+  685  python remake
+  686  python remake.py 
+  687  vim wavelets.py
+  688  python remake.py 
+  689  cd ../../UNAM/MLH18/
+  690  ls
+  691  cd ../../Scripts/ceilo_2016/
+  692  python remake.py 
+  693  exit
+  694  screen -r 27
+  695  screen -list
+  696  screen -r 17529.pts-10.EPR-01 
+  697  cd ../D1_CEILO/UNAM/MLH18/
+  698  ls
+  699  vi 20120605_UNAM_mlh.txt 
+  700  ls \
+  701  ls | wc -l
+  702  ls ../perfiles/ | wc -l 
+  703  screen -r 17529.pts-10.EPR-01 
+  704  ls | wc -l
+  705  ls -lt
+  706  screen -list
+  707  screen -r 17529.pts-10.EPR-01 
+  708  ls ../D1_CEILO/UNAM/MLH18/ | wc -l
+  709  screen 
+  710  cd ../D1_CEILO/Scripts/ceilo_2016/
+  711  python2 remake.py 
+  712  vim remake.py 
+  713  python2 remake.py 
+  714  vim remake.py 
+  715  python2 remake.py 
+  716  screen -list
+  717  screen -r 1685.pts-12.EPR-01 
+  718  exit
+  719  screen -list
+  720  screen -r 17529.pts-10.EPR-01 
+  721  exit
+  722  screen -list 
+  723  screen -r 1685.pts-12.EPR-01 
+  724  screen -r 17529.pts-10.EPR-01 
+  725  top
+  726  screen -r 1685.pts-12.EPR-01 
+  727  screen -r 17529.pts-10.EPR-01 
+  728  ls ../D1_CEILO/UNAM/perfiles/ | wc -l 
+  729  ls ../D1_CEILO/UNAM/MLH18/ | wc -l 
+  730  ls ../D1_CEILO/JQRO/Results_day/perfiles/ | wc -l 
+  731  ls ../D1_CEILO/JQRO/Results_day/MLH/ | wc -l 
+  732  ls ../D1_CEILO/JQRO/Results_day/MLH18/ | wc -l 
+  733  top
+  734  ls
+  735  cd ../D1_CEILO/
+  736  ls
+  737  cd TOLU/
+  738  ls
+  739  mkdir Results_day/Preliminary/MLH18
+  740  cd Results_day/Preliminary/MLH18/
+  741  l
+  742  pwd
+  743  cd ../../../../Scripts/ceilo_2016/
+  744  nano remake.py 
+  745  python2 remake.py 
+  746  screen 
+  747  cd ../../
+  748  ls
+  749  cd COAT/
+  750  ls
+  751  cd CL4UT-6/
+  752  ls
+  753  cd ../
+  754  ls
+  755  cd ../
+  756  ls
+  757  cd ALTZ/
+  758  ls
+  759  cd CL1UT-6/
+  760  ls
+  761  cd ../
+  762  ls
+  763  cd ../
+  764  ls
+  765  cd SI
+  766  cd SISAL/
+  767  ls
+  768  cd CL2/
+  769  ls
+  770  cd ../
+  771  ls
+  772  cd ../
+  773  ls
+  774  cd ERNO/
+  775  ls
+  776  cd CL2/
+  777  ls
+  778  cd ../
+  779  ls ERNO/
+  780  ls
+  781  ls ERNO/Results_day/
+  782  cd Scripts/ceilo_2016/
+  783  nano remake.py 
+  784  nano ceiloparameters.txt 
+  785  vim ceilov201605.py
+  786  vim loop_v1606.py
+  787  vim ceilov201605.py
+  788  python2 loop_v1606.py 
+  789  mkdir ../../ERNO/Results_day/perfiles
+  790  python2 loop_v1606.py 
+  791  screen 
+  792  exit
+  793  python2 remake.py 
+  794  exit
+  795  screen -list
+  796  screen -r 7381.pts-8.EPR-01 
+  797  ls
+  798  screen -r 17529.pts-10.EPR-01 
+  799  ls
+  800  screen -r 6689.pts-8.EPR-01 
+  801  scren -list
+  802  screen -list
+  803  screen -r 7381.pts-8.EPR-01 
+  804  cd ../D1_CEILO/ERNO/
+  805  ls
+  806  cd Results_day/
+  807  ls
+  808  cd perfiles/
+  809  l
+  810  vim changenames.py
+  811  python3 changenames.py 
+  812  ls
+  813  rm 2007*
+  814  ls
+  815  cd ../
+  816  ls | watch ls -l 
+  817  cd ../
+  818  ls
+  819  cd ../
+  820  cd ERNO/CL2/
+  821  ls
+  822  cd ../
+  823  ls
+  824  cd JQRO/
+  825  ls
+  826  cd Results_day/MLH18/
+  827  ls
+  828  nano 20180227_UNAM_mlh.txt 
+  829  cd ../
+  830  cd ..
+  831  cd ../
+  832  ls
+  833  exit
+  834  ls
+  835  cd ../D1_CEILO/Scripts/ceilo_2016/
+  836  nano mlhtodf.py 
+  837  python mlhtodf.py 
+  838  cd ../../JQRO/Results_day/
+  839  ls
+  840  nano jqro_2018.csv 
+  841  vim jqro_2018.csv 
+  842  ls
+  843  cd ../../
+  844  ls
+  845  cd Scripts/ceilo_2016/
+  846  nano remake.py 
+  847  nano mlhtodf.py 
+  848  python mlhtodf.py 
+  849  nano mlhtodf.py 
+  850  python mlhtodf.py 
+  851  lw
+  852  ls
+  853  ls ../../TOLU/Results_day/Preliminary/
+  854  exit
+  855  ls
+  856  screen -list
+  857  screen -r 17529.pts-10.EPR-01 
+  858  exit
+  859  cd ../D1_CEILO/Scripts/ceilo_2016/
+  860  nano remake.py 
+  861  git add . 
+  862  git commit -m "Changed algorithm to account for lowest height where backscaterring becomes 0."
+  863  git push origin master
+  864  rm actualfile.dat 
+  865  git add . 
+  866  git push origin master
+  867  git commit -m "Changed algorithm to account for lowest height where backscaterring becomes 0."
+  868  git push origin master
+  869  ls
+  870  ls -lh
+  871  rm -rf .hg/
+  872  git add . 
+  873  git commit -m "Changed algorithm to account for lowest height where backscaterring becomes 0."
+  874  git push origin master
+  875  ls .*
+  876  git add . 
+  877  git commit -m "Changed algorithm to account for lowest height where backscaterring becomes 0."
+  878  git push origin master
+  879  hg commit --close-branch
+  880  git status
+  881  git log
+  882  git rm --cached .hg/
+  883  git rm --cached .hg/*
+  884  ls
+  885  git ls-tree --full-tree -r HEAD
+  886  git remote -v
+  887  git push origin master
+  888  git push origin
+  889  git push origin master
+  890  locate actualfile.dat.d
+  891  cd .hg/
+  892  rm -rf /home/D1_CEILO/UNAM/scripts_old/ceilo_2016/.hg/store/data/actualfile.dat.d 
+  893  locate actualfile.dat.d
+  894  rm /home/D1_CEILO/UNAM/scripts_old/ceilo_2016/.hg/store/data/actualfile.dat.d 
+  895  cd ../
+  896  ls
+  897  cd ../
+  898  Scripts/ceilo_2016/
+  899  ls
+  900  cd Scripts/ceilo_2016/
+  901  ls
+  902  mkdir gitversion
+  903  cd gitversion/
+  904  git clone https://github.com/JLGarciaFranco/ceilo.git
+  905  cp ../*.py . 
+  906  ls
+  907  git add . 
+  908  git commit -m "First commit"
+  909  git push origin master
+  910  cd ../../../UNAM/scripts_old/
+  911  ls
+  912  cd ceilo_2016/
+  913  ls
+  914  rm -rf .hg/
+  915  cd ../../
+  916  ls
+  917  cd ../Scripts/ceilo_2016/
+  918  ls
+  919  cd gitversion/
+  920  ls
+  921  git add . 
+  922  git commit
+  923  git push origin master
+  924  cd ../
+  925  rm -rf .git/
+  926  git clone https://github.com/JLGarciaFranco/ceilo.git
+  927  git add . 
+  928  git init
+  929  git add . 
+  930  git commit 
+  931  git push origin master
+  932  git clone https://github.com/JLGarciaFranco/ceilo.git
+  933  git push origin master
+  934  git remote rename origin upstream
+  935  git remote add origin https://github.com/JLGarciaFranco/ceilo_2.git
+  936  git push origin master
+  937  cd ../D1_CEILO/Scripts/ceilo_2016/
+  938  ls
+  939  git fetch origin master
+  940  git merge origin master
+  941  git merge master
+  942  nano remake.py 
+  943  git pull origin master
+  944  nano remake.py 
+  945  rm ../../TOLU/Results_day/Preliminary/MLH18/*
+  946  python2 remake.py 
+  947  nano remake.py 
+  948  python2 remake.py 
+  949  nano remake.py 
+  950  python2 remake.py 
+  951  nano remake.py 
+  952  python2 remake.py 
+  953  nano remake.py 
+  954  nano ceilotools.py
+  955  python2 remake.py 
+  956  nano remake.py 
+  957  nano ceilotools.py
+  958  python2 remake.py 
+  959  vim remake.py 
+  960  nano ceilotools.py
+  961  python2 remake.py 
+  962  nano ceilotools.py
+  963  nano ipf.py
+  964  python2 remake.py 
+  965  vim remake.py 
+  966  python2 remake.py 
+  967  git commit -m "TOLU gives high values, going to see in gazelle"
+  968  git push origin master
+  969  git add . 
+  970  git commit -m "TOLU gives high values, going to see in gazelle"
+  971  git push origin master
+  972  python2 remake.py 
+  973  git pull origin master
+  974  nano remake.py 
+  975  nano ceilotools.py
+  976  python2 remake.py py
+  977  screen -list
+  978  screen -r 7381.pts-8.EPR-01 
+  979  exit
+  980  screen -list
+  981  screen -r 7381.pts-8.EPR-01 
+  982  screen -r 17529.pts-10.EPR-01 
+  983  exit
+  984  screen -r 17529.pts-10.EPR-01 
+  985  screen -list
+  986  screen -r 7381.pts-8.EPR-01 
+  987  ls
+  988  screen -r 17529.pts-10.EPR-01 
+  989  screen -r 7381.pts-8.EPR-01 
+  990  vim ../D1_CEILO/UNAM/MLH18/20130101_UNAM_mlh.txt 
+  991  exit
+  992  screen -r 17529.pts-10.EPR-01 
+  993  screen -list
+  994  screen -r 7381.pts-8.EPR-01 
+  995  exit
+  996  screen -r 17529.pts-10.EPR-01 
+  997  screen -list
+  998  screen -r 7381.pts-8.EPR-01 
+  999  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1000  python2 remake.py 
+ 1001  screen -r 7381.pts-8.EPR-01 
+ 1002  screen -r 17529.pts-10.EPR-01 
+ 1003  screen -list
+ 1004  screen -r 17529.pts-10.EPR-01 
+ 1005  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1006  ls
+ 1007  git add . 
+ 1008  git commit -m "Working version in server"
+ 1009  git push origin master
+ 1010  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1011  ls
+ 1012  python2 remake.py 
+ 1013  vim wavelets.py
+ 1014  python2 remake.py 
+ 1015  vim wavelets.py
+ 1016  python2 remake.py 
+ 1017  vim wavelets.py
+ 1018  python2 remake.py 
+ 1019  vim wavelets.py
+ 1020  python2 remake.py 
+ 1021  vim wavelets.py
+ 1022  python2 remake.py 
+ 1023  vim wavelets.py
+ 1024  nano wavelets.py
+ 1025  python2 remake.py 
+ 1026  vim wavelets.py
+ 1027  python2 remake.py 
+ 1028  vim wavelets.py
+ 1029  python2 remake.py 
+ 1030  vim wavelets.py
+ 1031  python2 remake.py 
+ 1032  vim wavelets.py
+ 1033  screen -r 7381.pts-8.EPR-01 
+ 1034  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1035  nano remake.py 
+ 1036  python2 remake.py 
+ 1037  nano remake.py 
+ 1038  python2 remake.py 
+ 1039  ls
+ 1040  python2 remake.py 
+ 1041  nano mlh_to_df.py 
+ 1042  python2 mlhtodf.py 
+ 1043  cd ../../TOLU/
+ 1044  cd Results_day/
+ 1045  ls
+ 1046  cd Preliminary/
+ 1047  l
+ 1048  nano tolu_2018.csv 
+ 1049  vim tolu_2018.csv 
+ 1050  ls
+ 1051  cd MLH18/
+ 1052  ls
+ 1053  vim 20170210_UNAM_mlh.txt 
+ 1054  vim 20170210_UNAM_rlh.txt 
+ 1055  cd ../../../../UNAM/MLH18/
+ 1056  ls
+ 1057  vim 20120307_UNAM_mlh.txt 
+ 1058  vim 20120307_UNAM_rlh.txt 
+ 1059  cd ../../
+ 1060  cd Scripts/ceilo_2016/
+ 1061  git fetch origin master
+ 1062  git pull origin master
+ 1063  nano remake.py 
+ 1064  python2 remake.py 
+ 1065  vim ../../UNAM/MLH18/20130101_UNAM_mlh.txt 
+ 1066  ls
+ 1067  vim wavelets.py
+ 1068  python2 remake.py 
+ 1069  vim ../../UNAM/MLH18/20130101_UNAM_mlh.txt 
+ 1070  vim ../../UNAM/MLH18/20130101_UNAM_rlh.txt 
+ 1071  git add . 
+ 1072  git commit -m "MLH too high, going to correct in local machine"
+ 1073  cp ../../UNAM/perfiles/20130101_UNAM_matrix.txt . 
+ 1074  git add . 
+ 1075  git commit -m "MLH too high, going to correct in local machine"
+ 1076  git push origin master
+ 1077  python3 
+ 1078  pip3 
+ 1079  git pull origin master
+ 1080  nano remake.py 
+ 1081  ls ../../TOLU/Results_day/Preliminary/
+ 1082  rm ../../TOLU/Results_day/Preliminary/MLH18/*
+ 1083  python2 remake.py 
+ 1084  nano remake.py 
+ 1085  python2 remake.py 
+ 1086  nano remake.py 
+ 1087  nano wavelets.py
+ 1088  python2 remake.py 
+ 1089  vim wavelets.py
+ 1090  python2 remake.py 
+ 1091  nano remake.py 
+ 1092  nano wavelets.py
+ 1093  python2 remake.py 
+ 1094  nano mlh_to_df.py 
+ 1095  python2 mlhtodf.py 
+ 1096  nano mlhtodf.py 
+ 1097  exit
+ 1098  python2 loop_v1606.py 
+ 1099  screen -list 
+ 1100  screen -r 1685.pts-12.EPR-01 
+ 1101  exit
+ 1102  screen -list
+ 1103  screen -r 7381.pts-8.EPR-01 
+ 1104  exit
+ 1105  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1106  nano remake.py 
+ 1107  python2 remake.py 
+ 1108  screen 
+ 1109  exit
+ 1110  screen -r 17529.pts-10.EPR-01 
+ 1111  screen -list
+ 1112  screen -r 26045.pts-8.EPR-01 
+ 1113  exit
+ 1114  python2 remake.py 
+ 1115  python2 mlhtodf.py 
+ 1116  exit
+ 1117  cd ../D1_CEILO/
+ 1118  cd Scripts/ceilo_2016/
+ 1119  screen -list 
+ 1120  screen -r 26045.pts-8.EPR-01 
+ 1121  exit
+ 1122  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1123  nano remake.py 
+ 1124  python2 remake.py 
+ 1125  screen -r 17529.pts-10.EPR-01 
+ 1126  exit
+ 1127  ls
+ 1128  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1129  rm ../../TOLU/Results_day/Preliminary/tolu_2018.csv 
+ 1130  python2 mlhtodf.py 
+ 1131  exit
+ 1132  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1133  nano remake.py 
+ 1134  python2 remake.py 
+ 1135  nano remake.py 
+ 1136  python2 remake.py 
+ 1137  nano remake.py 
+ 1138  python2 remake.py 
+ 1139  nano remake.py 
+ 1140  python2 remake.py 
+ 1141  screen -r 17529.pts-10.EPR-01 
+ 1142  exit
+ 1143  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1144  ls
+ 1145  screen -r 17529.pts-10.EPR-01 
+ 1146  exit
+ 1147  screen -list
+ 1148  screen -r 1283.pts-10.EPR-01 
+ 1149  screen -list 
+ 1150  ls
+ 1151  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1152  nano wavelets.py
+ 1153  nano remake.py 
+ 1154  python remake.py
+ 1155  nano remake.py 
+ 1156  python remake.py
+ 1157  nano remake.py 
+ 1158  python remake.py
+ 1159  nano remake.py 
+ 1160  python remake.py
+ 1161  vim remake.py 
+ 1162  rm ../../UNAM/MLH18/* 
+ 1163  python2 remake.py 
+ 1164  nano remake.py 
+ 1165  python2 remake.py 
+ 1166  nano remake.py 
+ 1167  python2 remake.py 
+ 1168  nano remake.py 
+ 1169  python2 remake.py 
+ 1170  python2 mlhtodf.py 
+ 1171  exit
+ 1172  screen -r 17529.pts-10.EPR-01 
+ 1173  exit
+ 1174  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1175  ls
+ 1176  nano plotdf.py
+ 1177  vim remake.py 
+ 1178  screen 
+ 1179  exit
+ 1180  python2 remake.py 
+ 1181  exit
+ 1182  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1183  ls
+ 1184  screen -list
+ 1185  screen -r 29222.pts-8.EPR-01 
+ 1186  nano remake.py 
+ 1187  ls ../../JQRO/Results_day/
+ 1188  python2 remake.py 
+ 1189  screen 
+ 1190  exit
+ 1191  screen -list
+ 1192  screen -r 2719.pts-8.EPR-01 
+ 1193  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1194  nano wavelets.py
+ 1195  python2 remake.py 
+ 1196  cd ../../JQRO/
+ 1197  ls
+ 1198  cd Results_day/MLH18/
+ 1199  ls
+ 1200  rm *
+ 1201  ;s
+ 1202  ls
+ 1203  cd ../../../Scripts/ceilo_2016/
+ 1204  nano remake.py 
+ 1205  python2 remake.py 
+ 1206  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1207  python2 remake.py 
+ 1208  ls ../../JQRO/Results_day/MLH18/
+ 1209  screen -r 2719.pts-8.EPR-01 
+ 1210  exit
+ 1211  screen -r 2719.pts-8.EPR-01 
+ 1212  exit
+ 1213  screen -r 2719.pts-8.EPR-01 
+ 1214  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1215  nano remake.py 
+ 1216  rm ../../UNAM/MLH18/*
+ 1217  python2 remake.py 
+ 1218  screen 
+ 1219  exit
+ 1220  screen -list 
+ 1221  screen -r 2719.pts-8.EPR-01 
+ 1222  screen -r 27385.pts-14.EPR-01 
+ 1223  exit
+ 1224  screen -r 27385.pts-14.EPR-01 
+ 1225  screen -list
+ 1226  screen -r 2719.pts-8.EPR-01 
+ 1227  exit
+ 1228  screen -r 27385.pts-14.EPR-01
+ 1229  screen -list 
+ 1230  screen -r 2719.pts-8.EPR-01 
+ 1231  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1232  nano mlhtodf.py 
+ 1233  rm ../../JQRO/Results_day/jqro_2018.csv 
+ 1234  python2 mlhtodf.py 
+ 1235  exit
+ 1236  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1237  git add . 
+ 1238  git commit -m "Remake worked for JQRO and TOLU, however, end of day avg does not match start of day" 
+ 1239  git push origin master
+ 1240  nano remake.py 
+ 1241  python2 remake.py 
+ 1242  rm ../../UNAM/MLH18/*
+ 1243  screen -r 27385.pts-14.EPR-01 
+ 1244  exit
+ 1245  nano clouds.py
+ 1246  python2 clouds.py 
+ 1247  vim clouds.py 
+ 1248  nano clouds.py 
+ 1249  python2 clouds.py 
+ 1250  nano clouds.py 
+ 1251  python2 clouds.py 
+ 1252  nano clouds.py 
+ 1253  python2 clouds.py 
+ 1254  nano clouds.py 
+ 1255  python2 clouds.py 
+ 1256  nano clouds.py 
+ 1257  python2 clouds.py 
+ 1258  nano clouds.py 
+ 1259  vim clouds.py 
+ 1260  python2 clouds.py 
+ 1261  nano mlhtodf.py 
+ 1262  rm ../../JQRO/Results_day/jqro_2018.csv 
+ 1263  python2 mlhtodf.py 
+ 1264  vim ../../JQRO/Results_day/jqro_2018.csv 
+ 1265  rm ../../JQRO/Results_day/jqro_2018.csv 
+ 1266  vim mlhtodf.py 
+ 1267  python2 mlhtodf.py 
+ 1268  vim ../../JQRO/Results_day/jqro_2018.csv 
+ 1269  vim mlhtodf.py 
+ 1270  rm ../../JQRO/Results_day/jqro_2018.csv 
+ 1271  python2 mlhtodf.py 
+ 1272  vim mlhtodf.py 
+ 1273  python2 mlhtodf.py 
+ 1274  vim clouds.py 
+ 1275  python2 clouds.py 
+ 1276  python2 mlhtodf.py 
+ 1277  vim ../../JQRO/Results_day/jqro_2018.csv 
+ 1278  git add . 
+ 1279  git commit -m "Cloud filter working"
+ 1280  git push origin master
+ 1281  nano clouds.py 
+ 1282  python2 clouds.py 
+ 1283  screen -list
+ 1284  screen -r 2719.pts-8.EPR-01 
+ 1285  exit
+ 1286  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1287  nano remake.py 
+ 1288  python2 remake.py 
+ 1289  screen 
+ 1290  exit 
+ 1291  exit
+ 1292  screen -list
+ 1293  screen -r 19586.pts-8.EPR-01 
+ 1294  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1295  ls
+ 1296  screen -r 19586.pts-8.EPR-01 
+ 1297  screen -r 27385.pts-14.EPR-01 
+ 1298  screen -r 2719.pts-8.EPR-01 
+ 1299  screen -r 19586.pts-8.EPR-01 
+ 1300  screen -r 2719.pts-8.EPR-01 
+ 1301  screen -r 27385.pts-14.EPR-01 
+ 1302  exit
+ 1303  cd ../D1_CEILO/Scripts/ceilo_2016/
+ 1304  ls
+ 1305  screen -r 2719.pts-8.EPR-01 
+ 1306  screen -r 27385.pts-14.EPR-01 
+ 1307  screen -r 19586.pts-8.EPR-01 
+ 1308  history >> h.txt
