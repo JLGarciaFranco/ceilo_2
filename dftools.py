@@ -1,4 +1,6 @@
+# -*- coding: utf8 -*-
 """
+
 Data-Frame tools module
 *********************************
 
@@ -11,7 +13,7 @@ This is the main toolbox designed to aid main processsing the Mixed-layer height
 the Python Module `Pandas <https://pandas.pydata.org/>`_.
 
 """
-# -*- coding: utf8 -*-
+
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib
@@ -119,11 +121,11 @@ def minutes(df,odf,show,rmean,save,name,wstd,c):
     	anomal=minavg-total
     	#minavg=minavg-total
     	#title=u'Term diurnal evolution (anomaly)'
-    	title=u'MH mean diurnal evolution'
+    	title=u'TOLU MH mean diurnal evolution Feb-Apr 2017'
     	ylabel=r'MH (m)'
     minarray=np.asarray(minavg)
     if rmean:
-    	minarray=runningMeanFast(minarray,4)
+    	minarray=runningMeanFast(minarray,6)
     tvec=frange(0,24,float(10)/60.0)
     bsicplot(title,minarray,tvec,show,save,name,ylabel,c)
 def bsicplot(titles,y,tvec,show,save,name,ylabel,c):
@@ -451,6 +453,57 @@ def grwthrate(dates,mlh):
 	dat=dat[indice:]
 	m,maxindex=growth(dat,nlmh)
 	return m,dindex+indice,maxindex
+def tolumaxminmean(df,axarr,f,c,lab):
+	df.index=pd.to_datetime(df.index)
+	dx=df.groupby([df.index.year,df.index.month,df.index.day,df.index.hour]).mean()
+	newindex=[]
+	for darray in dx.index:
+		newindex.append(datetime.datetime(darray[0],darray[1],darray[2],darray[3],0))
+	dx.index=pd.to_datetime(newindex)
+	#Get max, min and mean. 
+	maxi=dx.groupby([dx.index.year,dx.index.month,dx.index.day]).max()
+	mini=dx.groupby([dx.index.year,dx.index.month,dx.index.day]).min()
+	mean=dx.groupby([dx.index.year,dx.index.month,dx.index.day]).mean()
+	dys=[]
+#	mini=runningMeanFast(mini.values,3)
+	for darray in mean.index:
+		dys.append(datetime.datetime(darray[0],darray[1],darray[2],0,0))
+	axarr[0].set_title('Time series ',fontsize=24)
+
+	axarr[0].plot(dys,maxi.values,c,label=lab,linewidth=1.5)
+	#label = axarr[0].yaxis.get_major_ticks(.label
+	labels= axarr[0].yaxis.get_major_ticks()#.set_fontsize(16)
+	for label in labels:
+		label=label.label
+		label.set_fontsize(16)
+	#	axarr[0].set_yticklabels(size=16)
+	axarr[0].set_ylabel('MH max [m]',fontsize=19)
+	axarr[0].grid()
+#	axarr[1].set_title('Time series ',fontsize=24)
+
+	axarr[1].plot(dys,mini.values,c,label=lab,linewidth=1.5)
+	axarr[1].grid()
+	#label = axarr[0].yaxis.get_major_ticks(.label
+	labels= axarr[1].yaxis.get_major_ticks()#.set_fontsize(16)
+	for label in labels:
+		label=label.label
+		label.set_fontsize(16)
+	#	axarr[0].set_yticklabels(size=16)
+	axarr[1].set_ylabel('MH min [m]',fontsize=19)
+	axarr[1].grid()
+#	axarr[0].set_title('Time series ',fontsize=24)
+
+	axarr[2].plot(dys,mean.values,c,label=lab,linewidth=1.5)
+	#label = axarr[0].yaxis.get_major_ticks(.label
+	labels= axarr[2].yaxis.get_major_ticks()#.set_fontsize(16)
+	for label in labels:
+		label=label.label
+		label.set_fontsize(16)
+	#	axarr[0].set_yticklabels(size=16)
+	axarr[2].set_ylabel('MH mean [m]',fontsize=19)
+	axarr[2].grid()
+	
+#	plt.show()
 def mlhmax(df,c,f,axarr,lab,name):
     df.index=pd.to_datetime(df.index)
     #print df.tail

@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import datetime
 from ceilotools import *
 from dftools import * 
-carpeta='/home/jlgf/Documents/Python/scripts/TOLU_2018.csv'
+carpeta='/home/jlgf/Documents/Python/scripts/jqro_2018.csv'
 #outf=outputdir+'all_avgperiods.csv'
 outputdir='/home/D1_CEILO/UNAM/PRCL/Results/paperplots/'
 outfile=carpeta
@@ -58,6 +58,7 @@ colorlist=['k','b']
 #x=yy
 #df=dt.append(dx)
 #df=df[(df.year != 2010) | (df.year==2010 and df.month <5)]
+plt.figure(figsize=(12,7))
 #f,axarr=plt.subplots(3,sharex=True,figsize=(16,16))
 for j,i in enumerate(lista):
 #	print i#
@@ -72,6 +73,7 @@ for j,i in enumerate(lista):
 #	monthtable(data)
 	#denom=4000-ilist[j]
 	minutes(data,data,False,True,False,avg,False,c)
+#	tolumaxminmean(data,axarr,f,c,avg)
 	#minutes(data,data,False,True,False,avg,False,c)
 	#plt.show()
 	#plt.savefig(outputdir+'jqroevolution.png')
@@ -112,10 +114,10 @@ for j,i in enumerate(lista):
 #plt.show()
 #x=yy	
 #plt.grid()
-#plt.legend(loc='upper left')
+plt.legend(loc='upper left')
 #plt.savefig(outputdir+'filtercomparsion_2.eps')
 #plt.show()
-plt.xlim([0,24])
+#plt.xlim([0,24])
 #plt.legend(loc='upper left',title=u'Filter',fontsize=11)
 plt.grid()
 #plt.savefig(outputdir+'Plots/cesar1.png')

@@ -90,7 +90,7 @@ def calmlh(fl,method,outputdir):
 		#else:
 		#	uplim+=4
 	# Calculate the coefficients. This line answers the initial question. 
-		coefficients = np.polyfit([7.5,12], [1500,3250], 1)
+		coefficients = np.polyfit([7.5,12], [1750,3250], 1)
 
 	# Print the findings
 #	print 'a =', coefficients[0]
@@ -103,14 +103,14 @@ def calmlh(fl,method,outputdir):
 #		y_axis = polynomial(x_axis)
 		if np.isnan(rlh[nn]):
 			try:
-				uplims[nn]=int((1250+polynomial(t[nn]))/2.)
+				uplims[nn]=int((1250)/4.+(3*polynomial(t[nn])/4.))
 			except:
 				uplims[nn]=1750
 		else:
 #			try:
 #				uplims[nn]=500+rlh[nn])/4.
 #			except:
-			if rlh[nn]<3250:
+			if rlh[nn]<2700:
 				uplims[nn]=int((rlh[nn]+polynomial(t[nn]))/2.)
 			else:
 				uplims[nn]=int(polynomial(t[nn]))
@@ -119,15 +119,15 @@ def calmlh(fl,method,outputdir):
 		if nn==len(tarr):
 			break
 	#print t[nn],z[uplim]
-	while nn<len(tarr) and t[nn]<=19.5:
+	while nn<len(tarr) and t[nn]<=18.25:
 		try:
 			zeroheight=int(z[np.where(allprf[:,nn]<=1)[0][0]])
 		except:
-			zeroheight=3200
-		if zeroheight < 3300:
+			zeroheight=3500
+		if zeroheight <= 3500:
 			uplims[nn]=zeroheight
 		else: 
-			uplims[nn]=3250
+			uplims[nn]=3500
 		nn+=1
 	#while t[nn]<=19.5:
 			#if len(z)==250:
