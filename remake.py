@@ -58,14 +58,14 @@ def calmlh(fl,method,outputdir):
 	if len(z)==250:
 		uplim=uplim/2
 
-	while t[nn]<=7.5:
+	while t[nn]<=7.:
 	#	if nn % 2 == 0 and len(z) ==250:
 	#		uplim=uplim-1
 	#	elif len(z)>250:
 	#		uplim-=1
 		if np.isnan(rlh[nn]):
 			if nn>2:
-				uplims[nn]=(uplims[nn-1]+1500)/2.
+				uplims[nn]=(uplims[nn-1]+1750)/2.
 			else:
 				uplims[nn]=1750
 		elif rlh[nn]<800 or rlh[nn]>3000:
@@ -78,19 +78,19 @@ def calmlh(fl,method,outputdir):
 				if np.isnan(np.nanmean(rlh[nn:nn+4])):
 					uplims[nn]=1750
 				else:
-					uplims[nn]=int(1500+(np.nanmean(rlh[nn:nn+4])/2.))
+					uplims[nn]=int((1750+(np.nanmean(rlh[nn:nn+4]))/2.))
 		else:
 			uplims[nn]=int(rlh[nn])
 		nn+=1
 		#uplims[nn]
 	#print t[nn],z[uplim]
-	while t[nn]<=12.:
+	while t[nn]<=13.:
 		#if len(z)==250:
 		#	uplim+=2
 		#else:
 		#	uplim+=4
 	# Calculate the coefficients. This line answers the initial question. 
-		coefficients = np.polyfit([7.5,12], [1750,3250], 1)
+		coefficients = np.polyfit([7.,13], [1750,3350], 1)
 
 	# Print the findings
 #	print 'a =', coefficients[0]
@@ -105,7 +105,7 @@ def calmlh(fl,method,outputdir):
 			try:
 				uplims[nn]=int(polynomial(t[nn]))
 			except:
-				uplims[nn]=2250
+				uplims[nn]=2450
 		else:
 #			try:
 #				uplims[nn]=500+rlh[nn])/4.
@@ -123,11 +123,11 @@ def calmlh(fl,method,outputdir):
 		try:
 			zeroheight=int(z[np.where(allprf[:,nn]<=1)[0][0]])
 		except:
-			zeroheight=3500
+			zeroheight=3350
 		if zeroheight <= 3500:
 			uplims[nn]=zeroheight
 		else: 
-			uplims[nn]=3500
+			uplims[nn]=3350
 		nn+=1
 	#while t[nn]<=19.5:
 			#if len(z)==250:
@@ -148,6 +148,10 @@ def calmlh(fl,method,outputdir):
 		#	uplim=uplim-1
 		#else:
 		#	uplim-=3
+		try:
+                        zeroheight=int(np.nanmean(z[np.where(allprf[:,nn]<=1)[0][0]]+1750))
+                except:
+                        zeroheight=1750
 		if np.isnan(rlh[nn]):
 			if np.isnan(np.nanmean(uplims[nn-5:nn])):
 				uplims[nn]=1750
@@ -155,10 +159,8 @@ def calmlh(fl,method,outputdir):
 				uplims[nn]=int(np.nanmean(uplims[nn-5:nn]))
 		elif rlh[nn]<800 or rlh[nn]>3000:
 			if nn>len(t)-2:
-				if np.isnan(np.nanmean(uplims[nn-4:nn])) and np.isnan(int(z[np.where(allprf[:,nn]<=1)[0][0]])) or int(z[np.where(allprf[:,nn]<=1)[0][0]])>2800:
-					uplims[nn]=1750
-				elif int(z[np.where(allprf[:,nn]<=1)[0][0]])<3000:
-					uplims[nn]=(1750+int(z[np.where(allprf[:,nn]<=1)[0][0]]))/2.
+				if np.isnan(np.nanmean(uplims[nn-4:nn])):
+					uplims[nn]=(1750+zeroheight)/2.
 				else:
 					uplims[nn]=int((np.nanmean(uplims[nn-4:nn])+1750)/2.)
 			else:

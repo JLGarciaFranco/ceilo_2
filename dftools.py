@@ -284,8 +284,10 @@ def pullclouds(df,cloudfile):
 	dfsnubs=df.copy()
 	cloudate=pd.to_datetime(cloudf[indx])
 	cloudate=cloudate.tolist()
+	print len(cloudate)
+	print "entering loop"
 	for i,j in enumerate(cloudate):
-
+		print i			
 		dfsnubs[j]=np.nan
 	return dfsnubs
 def cleanday(df):

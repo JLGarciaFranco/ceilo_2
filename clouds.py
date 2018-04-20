@@ -8,12 +8,12 @@ import csv
 import math
 from  ceilotools import histogram
 from dftools import *
-outputfile= '/home/D1_CEILO/JQRO/Results_day/jqro_cloud.csv'
-carpeta='/home/D1_CEILO/JQRO/Results_day/perfiles/'
+outputfile= '/home/D1_CEILO/UNAM/PRCL/Results/unam_cloudx.csv'
+carpeta='/home/D1_CEILO/UNAM/perfiles/'
 os.chdir(carpeta)
-flist=glob.glob(carpeta+"*.txt")
+flist=glob.glob(carpeta+"*UNAM*.txt")
 flist=np.sort(flist)
-
+print(flist[-1])
 def cloudvec(fl):
 	fle=open(fl,'r')
 	fle.readline()

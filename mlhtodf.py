@@ -15,13 +15,13 @@ import matplotlib.pyplot as plt
 import datetime
 from ceilotools import *
 from dftools import * 
-carpeta1='/home/D1_CEILO/JQRO/Results_day/MLH18/'
-outputdir='/home/D1_CEILO/JQRO/Results_day/'
-outfile=outputdir+'jqro_2018.csv'
+carpeta1='/home/D1_CEILO/UNAM/'
+outputdir='/home/D1_CEILO/UNAM/PRCL/Results/'
+outfile=outputdir+'unam_2018.csv'
 filelist=os.listdir(outputdir)
 #os.system('rm '+outfile)
 #newfile=outputdir+'c2_article_db.csv'
-cloudfile=outputdir+'jqro_cloud.csv'
+cloudfile=outputdir+'unam_cloudx.csv'
 dirnames=['Raw']
 dirlist=['MLH18']
 #dirlist=dirnames
@@ -37,12 +37,13 @@ def readmlh(filename):
 	return profil
 for h,direct in enumerate(dirlist):
 #	label=dirnames[h]
-	carpeta=outputdir+direct+'/'
+	carpeta=carpeta1+direct+'/'
 	print carpeta
 	flist1=glob.glob(carpeta+'*mlh*.txt')
 	flist1=np.sort(flist1)
 	print flist1
 	for i,filename in enumerate(flist1):
+		print filename
 		f=readmlh(filename)
 		fname1=filename.split('/')[-1]
 		fname=fname1[0:8]
@@ -71,11 +72,14 @@ for h,direct in enumerate(dirlist):
 mlh1=np.asarray(mlh,dtype=int)
 dh=pd.DataFrame(date)
 df1=pd.DataFrame(mlh,index=date)
+print "df made with unfiltered data"
 df1.columns=['MLH (m)']
 df1.index=pd.to_datetime(df1.index)
 #	df=df.join(df1,how='outer')
+print "about to enter pull clouds"
 for label in df1.columns:
 	df1[label+'_filtered']=pullclouds(df1[label],cloudfile)
+	print("out of pullclouds")
 #df.index=pd.to_datetime(df.index)
 #df=df.dropna(how='all')
 #df=ut_5tout_6(df)
