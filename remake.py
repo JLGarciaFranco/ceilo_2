@@ -8,7 +8,8 @@ import csv
 import math
 from ceilotools import *
 outputdir='/home/D1_CEILO/UNAM/MLH18/'
-#10os.system('mkdir '+outputdir)
+#10os.system('mkdir '+outputdir)i
+#outputdir=''
 carpeta='/home/D1_CEILO/UNAM/perfiles/'
 #outputdir=carpeta=''
 filelist=[]
@@ -49,10 +50,11 @@ def calmlh(fl,method,outputdir):
 	uplim=500
 	nn=0
 	method='C2'
-	try:
-		rlh=ipf(allprf,z,t)
-	except:
-		return mlh,tarr
+#	try:
+	print('attempting rlh')
+	rlh=ipf(allprf,z,t)
+#	except:
+#		return mlh,tarr
 	writemlh(outputdir+files[0:8]+"_"+station+"_rlh.txt",tarr, rlh, station)
 	#uplims=rlh
 	if len(z)==250:
@@ -67,18 +69,18 @@ def calmlh(fl,method,outputdir):
 			if nn>2:
 				uplims[nn]=(uplims[nn-1]+1750)/2.
 			else:
-				uplims[nn]=1750
+				uplims[nn]=1500
 		elif rlh[nn]<800 or rlh[nn]>3000:
 			if nn>4:
 				if np.isnan(np.nanmean(uplims[nn-4:nn])):
-					uplims[nn]=1750
+					uplims[nn]=1500
 				else:
 					uplims[nn]=int(np.nanmean(uplims[nn-4:nn-1]))
 			else:
 				if np.isnan(np.nanmean(rlh[nn:nn+4])):
-					uplims[nn]=1750
+					uplims[nn]=1500
 				else:
-					uplims[nn]=int((1750+(np.nanmean(rlh[nn:nn+4]))/2.))
+					uplims[nn]=int((1500+(np.nanmean(rlh[nn:nn+4]))/2.))
 		else:
 			uplims[nn]=int(rlh[nn])
 		nn+=1
@@ -86,11 +88,12 @@ def calmlh(fl,method,outputdir):
 	#print t[nn],z[uplim]
 	while t[nn]<=13.:
 		#if len(z)==250:
+
 		#	uplim+=2
 		#else:
 		#	uplim+=4
 	# Calculate the coefficients. This line answers the initial question. 
-		coefficients = np.polyfit([7.,13], [1750,3350], 1)
+		coefficients = np.polyfit([7.,13], [1500,3350], 1)
 
 	# Print the findings
 #	print 'a =', coefficients[0]
@@ -101,19 +104,27 @@ def calmlh(fl,method,outputdir):
 #		print t[nn],polynomial(t[nn])
 #		x_axis = np.linspace(0,500,100)
 #		y_axis = polynomial(x_axis)
-		if np.isnan(rlh[nn]):
-			try:
-				uplims[nn]=int(polynomial(t[nn]))
-			except:
-				uplims[nn]=2450
+		try:
+			zeroheight=int(z[np.where(allprf[:,nn]<=1)[0][0]])
+		except:
+			zeroheight=polynomial(t[nn])
+		if zeroheight < polynomial(t[nn])-20:
+			uplims[nn]=zeroheight
 		else:
+			uplims[nn]=int(polynomial(t[nn]))
+
+#			try:
+#				uplims[nn]=int(polynomial(t[nn]))
+#			except:
+#				uplims[nn]=2450
+#		else:
 #			try:
 #				uplims[nn]=500+rlh[nn])/4.
 #			except:
-			if rlh[nn]>6700:
-				uplims[nn]=int((rlh[nn]+polynomial(t[nn]))/2.)
-			else:
-				uplims[nn]=int(polynomial(t[nn]))
+#			if rlh[nn]>6700:
+#				uplims[nn]=int((rlh[nn]+polynomial(t[nn]))/2.)
+#			else:
+#				uplims[nn]=int(polynomial(t[nn]))
 #		print uplims[nn]
 		nn+=1
 		if nn==len(tarr):
@@ -149,25 +160,25 @@ def calmlh(fl,method,outputdir):
 		#else:
 		#	uplim-=3
 		try:
-                        zeroheight=int(np.nanmean(z[np.where(allprf[:,nn]<=1)[0][0]]+1750))
+                        zeroheight=int(np.nanmean(z[np.where(allprf[:,nn]<=1)[0][0]]))
                 except:
-                        zeroheight=1750
+                        zeroheight=1500
 		if np.isnan(rlh[nn]):
 			if np.isnan(np.nanmean(uplims[nn-5:nn])):
-				uplims[nn]=1750
+				uplims[nn]=1500
 			else:
 				uplims[nn]=int(np.nanmean(uplims[nn-5:nn]))
-		elif rlh[nn]<800 or rlh[nn]>3000:
+		elif rlh[nn]<900 or rlh[nn]>3000:
 			if nn>len(t)-2:
 				if np.isnan(np.nanmean(uplims[nn-4:nn])):
-					uplims[nn]=(1750+zeroheight)/2.
+					uplims[nn]=(1500+zeroheight)/2.
 				else:
-					uplims[nn]=int((np.nanmean(uplims[nn-4:nn])+1750)/2.)
+					uplims[nn]=int((np.nanmean(uplims[nn-4:nn])+1500)/2.)
 			else:
 				if np.isnan(np.nanmean(rlh[nn-6:nn+1])):
-					uplims[nn]=1750
+					uplims[nn]=1500
 				else:
-					uplims[nn]=int((np.nanmean(uplims[nn-6:nn])+1750)/2.)
+					uplims[nn]=int((np.nanmean(uplims[nn-6:nn])+1500)/2.)
 		else:
 			uplims[nn]=int(rlh[nn])
 		nn+=1

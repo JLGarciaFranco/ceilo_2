@@ -13,17 +13,17 @@ def ipf(allprf,z,t):
 	# obtenemos la longitud de s
 	isz=len(s)
 	#indices de z
-	z_i=np.arange(0,len(z),dtype=int)
+	z_i=np.arange(0,len(z)-int((len(z)/3.)),dtype=int)
 	# indices de s
 	s_i=np.arange(0,isz)
 	# niveles a probar como posiblles zm
-	niv=len(z)
+	niv=len(z)-int(len(z)/3.)
 	# nivel minimo a partir donde se empieza a busar la altura.
-	if niv==500:
+	if niv==500-int(500/3.):
 		niv_min=30
 	else:
 		niv_min=15
-
+	print(niv_min)
 	mlh=np.zeros(len(t))
 	for i,tt in enumerate(t):
 
@@ -31,7 +31,7 @@ def ipf(allprf,z,t):
 		s_espesor=np.zeros((len(np.arange(niv_min,niv-np.max(s))),isz))
 	# Time-loop
 		zk=np.zeros((len(t),isz),dtype=int)
-		prf=allprf[:,i]
+		prf=allprf[0:len(z)-int(len(z)/3),i]
 		# height loop over possible values of entrainment
 		Bu=np.zeros((len(np.arange(niv_min,niv-np.max(s))),len(s)))
 		B=np.zeros((len(z_i),len(np.arange(niv_min,niv-np.max(s))),len(s)))
